@@ -6,6 +6,9 @@ import EntryList from '../../components/EntryList';
 
 const Main = ({navigation}) => {
   const currentBalance = 1250.12;
+
+  //() => navigation.navigate('NewEntry')
+
   const entriesGroup = [
     {key: '1', description: 'Alimentação:', amount: '$201'},
     {key: '2', description: 'Combustível:', amount: '$120'},
@@ -14,18 +17,15 @@ const Main = ({navigation}) => {
     {key: '5', description: 'Outros:', amount: '$192'},
   ];
 
-  const entries = [
-    {key: '1', description: 'Padaria:', amount: '$201'},
-    {key: '2', description: 'Farmacia:', amount: '$20'},
-    {key: '3', description: 'Supermercado:', amount: '$151'},
-  ];
-
   return (
     <View style={styles.container}>
       <BalancePanel currentBalance={currentBalance} />
-      <Button title="teste" onPress={() => navigation.navigate('NewEntry')} />
+      <Button
+        title="Adicionar"
+        onPress={() => navigation.navigate('NewEntry')}
+      />
       <EntrySummary entriesGroup={entriesGroup} />
-      <EntryList entries={entries} />
+      <EntryList navigation={navigation} />
     </View>
   );
 };

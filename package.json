@@ -16,7 +16,9 @@
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.8.0",
-    "react-navigation": "^4.3.8"
+    "react-navigation": "^4.3.8",
+    "realm": "^5.0.4",
+    "uuid": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

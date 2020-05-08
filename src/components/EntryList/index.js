@@ -1,17 +1,41 @@
-import React from 'react';
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, Button, FlatList, StyleSheet} from 'react-native';
+
 import EntryListItem from './EntryListItem';
 
-const EntryList = ({entries}) => {
+import {getEntries} from '../../services/Entries';
+
+const EntryList = ({navigation}) => {
+  const [entries, setEntries] = useState([]);
+
+  useEffect(() => {
+    async function loadEntries() {
+      const data = await getEntries();
+      setEntries(data);
+    }
+
+    loadEntries();
+
+    console.log('EntryList :: useEffect');
+  }, []);
+
   return (
     <View>
-      <Text style={styles.title}>Últimos lançamentos</Text>
+      <Text style={styles.title}>Últimos Lançamentos</Text>
       <FlatList
         data={entries}
         renderItem={({item}) => (
-          <Text style={styles.entry}>
-            - {item.description} - {item.amount}
-          </Text>
+          <View>
+            <Text style={styles.entry}>
+              - {item.description} - ${item.amount}
+            </Text>
+            <Button
+              title={item.id}
+              onPress={() => {
+                navigation.navigate('NewEntry', {entry: item});
+              }}
+            />
+          </View>
         )}
       />
     </View>
@@ -20,13 +44,13 @@ const EntryList = ({entries}) => {
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
+    // flex: 1,
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 10,
     marginTop: 10,
+    marginBottom: 10,
   },
 });
 

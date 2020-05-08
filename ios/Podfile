@@ -79,6 +79,8 @@ target 'plusmoney' do
 
   pod 'RNCPicker', :path => '../node_modules/@react-native-community/picker'
 
+  pod 'RealmJS', :path => '../node_modules/realm'
+
   target 'plusmoneyTests' do
     inherit! :complete
     # Pods for testing
