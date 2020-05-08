@@ -15,7 +15,9 @@
     "react-gesture-handler": "0.0.3",
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-linear-gradient": "^2.5.6",
     "react-native-reanimated": "^1.8.0",
+    "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.3.8",
     "realm": "^5.0.4",
     "uuid": "^8.0.0"

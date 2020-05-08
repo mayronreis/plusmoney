@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, Button, FlatList, StyleSheet} from 'react-native';
 
 import EntryListItem from './EntryListItem';
-
+import Container from '../Core/Container';
 import {getEntries} from '../../services/Entries';
 
-const EntryList = ({navigation}) => {
+const EntryList = () => {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
@@ -20,25 +20,23 @@ const EntryList = ({navigation}) => {
   }, []);
 
   return (
-    <View>
-      <Text style={styles.title}>Últimos Lançamentos</Text>
+    <Container
+      title="Últimos Lançamentos"
+      actionLabelText="Últimos 7 dias"
+      actionButtonText="Ver mais"
+      onPressActionButton={() => {}}>
       <FlatList
         data={entries}
+        keyExtractor={(item) => item.id}
         renderItem={({item}) => (
           <View>
             <Text style={styles.entry}>
               - {item.description} - ${item.amount}
             </Text>
-            <Button
-              title={item.id}
-              onPress={() => {
-                navigation.navigate('NewEntry', {entry: item});
-              }}
-            />
           </View>
         )}
       />
-    </View>
+    </Container>
   );
 };
 
