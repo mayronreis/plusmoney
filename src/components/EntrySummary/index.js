@@ -4,7 +4,7 @@ import EntrySummaryChart from './EntrySummaryChart';
 import Container from '../Core/Container';
 
 const entriesGroup = [
-  {key: '1', description: 'Alimentação:', amount: '$201'},
+  {key: '1', description: 'Alimentaçãoo:', amount: '$201'},
   {key: '2', description: 'Combustível:', amount: '$120'},
   {key: '3', description: 'Aluguel:', amount: '$29'},
   {key: '4', description: 'Lazer:', amount: '$110'},

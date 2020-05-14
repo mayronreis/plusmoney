@@ -1,33 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Modal,
-  FlatList,
-} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Colors from '../../../Styles/colors';
-import {
-  getCreditCategories,
-  getDebitCategories,
-} from '../../../services/Categories';
+import CategoryModal from '../../../components/CategoryModal';
 
 const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [debitCategories, setDebitCategories] = useState([]);
-  const [creditCategories, setCreditCategories] = useState([]);
-
-  useEffect(() => {
-    async function loadCategories() {
-      setDebitCategories(await getDebitCategories());
-      setCreditCategories(await getCreditCategories());
-    }
-
-    loadCategories();
-
-    console.log('NewEntryCategoryPicker :: useEffect');
-  }, []);
 
   const onCategoryPress = (item) => {
     onChangeCategory(item);
@@ -47,36 +24,15 @@ const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
         }}>
         <Text style={styles.pickerButtonText}>{category.name}</Text>
       </TouchableOpacity>
-      <Modal animationType="slide" transparent={false} visible={modalVisible}>
-        <View style={styles.modal}>
-          <FlatList
-            data={debit ? debitCategories : creditCategories}
-            keyExtractor={(item) => item.id}
-            renderItem={({item}) => (
-              <TouchableOpacity
-                style={styles.modalItem}
-                onPress={() => onCategoryPress(item)}>
-                <Text style={[styles.modalItemText, {color: item.color}]}>
-                  {item.name}
-                </Text>
-              </TouchableOpacity>
-            )}
-          />
-
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={() => {
-              setModalVisible(false);
-            }}>
-            <Text style={styles.closeButtonText}>Fechar</Text>
-          </TouchableOpacity>
-        </View>
-      </Modal>
+      <CategoryModal
+        categoryType={debit ? 'debit' : 'credit'}
+        isVisible={modalVisible}
+        onConfirm={onCategoryPress}
+        onCancel={onClosePress}
+      />
     </View>
   );
 };
-
-export default NewEntryCategoryPicker;
 
 const styles = StyleSheet.create({
   pickerButton: {
@@ -107,19 +63,6 @@ const styles = StyleSheet.create({
     color: Colors.white,
     textAlign: 'center',
   },
-  closeButton: {
-    alignSelf: 'center',
-    backgroundColor: Colors.green,
-    borderWidth: 1,
-    borderRadius: 15,
-    marginHorizontal: 20,
-    marginVertical: 10,
-    padding: 10,
-  },
-  closeButtonText: {
-    fontFamily: 'bold',
-    fontSize: 20,
-    color: Colors.white,
-    textAlign: 'center',
-  },
 });
+
+export default NewEntryCategoryPicker;
