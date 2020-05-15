@@ -41,10 +41,10 @@ const RelativeDaysModal = ({isVisible, onConfirm, onCancel}) => {
 const styles = StyleSheet.create({
   modal: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.backgroundLight,
   },
   modalItem: {
-    backgroundColor: Colors.asphalt,
+    backgroundColor: Colors.textPrimary,
     borderRadius: 15,
     marginVertical: 10,
     marginHorizontal: 20,

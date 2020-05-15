@@ -11,8 +11,7 @@ import ActionFooter, {
   ActionSecondaryButton,
 } from '../../components/Core/ActionFooter';
 
-import {saveEntry} from '../../services/Entries';
-import {deleteEntry} from '../../services/Entries';
+import useEntries from '../../hooks/useEntries';
 
 import Colors from '../../Styles/colors';
 
@@ -23,6 +22,8 @@ const NewEntry = ({navigation}) => {
     entryAt: new Date(),
     category: {id: null, name: 'Selecione'},
   });
+
+  const [, saveEntry, deleteEntry] = useEntries();
 
   const [debit, setDebit] = useState(entry.amount <= 0);
   const [amount, setAmount] = useState(entry.amount);
@@ -97,7 +98,7 @@ const NewEntry = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.backgroundLight,
     padding: 10,
   },
   formContainer: {

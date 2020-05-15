@@ -87,7 +87,7 @@ const Report = ({navigation}) => {
           <Icon
             name="keyboard-arrow-down"
             size={20}
-            color={Colors.champagneDark}
+            color={Colors.textPrimary}
           />
         </TouchableOpacity>
 
@@ -99,7 +99,7 @@ const Report = ({navigation}) => {
       </View>
 
       <ScrollView>
-        <EntrySummary />
+        <EntrySummary days={relativeDays} />
         <EntryList days={relativeDays} category={category} />
       </ScrollView>
 
@@ -118,11 +118,11 @@ const Report = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.backgroundLight,
   },
   filterButton: {
     flexDirection: 'row',
-    borderColor: Colors.champagneDark,
+    borderColor: Colors.textPrimary,
     borderWidth: 1,
     borderRadius: 150,
     paddingVertical: 5,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   filterButtonText: {
-    color: Colors.champagneDark,
+    color: Colors.textPrimary,
   },
   filterContainer: {
     flexDirection: 'row',

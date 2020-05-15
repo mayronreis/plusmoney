@@ -29,11 +29,9 @@ const CategoryModal = ({categoryType, isVisible, onConfirm, onCancel}) => {
           keyExtractor={(item) => item.id}
           renderItem={({item}) => (
             <TouchableOpacity
-              style={styles.modalItem}
+              style={[styles.modalItem, {backgroundColor: item.color}]}
               onPress={() => onConfirm(item)}>
-              <Text style={[styles.modalItemText, {color: item.color}]}>
-                {item.name}
-              </Text>
+              <Text style={[styles.modalItemText]}>{item.name}</Text>
             </TouchableOpacity>
           )}
         />
@@ -49,10 +47,9 @@ const CategoryModal = ({categoryType, isVisible, onConfirm, onCancel}) => {
 const styles = StyleSheet.create({
   modal: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.backgroundComponents,
   },
   modalItem: {
-    backgroundColor: Colors.asphalt,
     borderRadius: 15,
     marginVertical: 10,
     marginHorizontal: 20,

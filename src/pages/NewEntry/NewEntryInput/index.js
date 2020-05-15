@@ -52,14 +52,14 @@ const NewEntryInput = ({value, onChangeDebit, onChangeValue}) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: Colors.asphalt,
+    backgroundColor: Colors.backgroundComponents,
     borderRadius: 15,
     marginHorizontal: 20,
     marginVertical: 10,
   },
   input: {
     fontSize: 28,
-    color: Colors.white,
+    color: Colors.textPrimary,
     textAlign: 'center',
     flex: 1,
   },
@@ -70,12 +70,12 @@ const styles = StyleSheet.create({
   },
   debitButtonPrefix: {
     fontSize: 28,
-    color: Colors.white,
+    color: Colors.textPrimary,
     minWidth: 8,
   },
   debitButtonText: {
     fontSize: 28,
-    color: Colors.white,
+    color: Colors.textPrimary,
   },
 });
 

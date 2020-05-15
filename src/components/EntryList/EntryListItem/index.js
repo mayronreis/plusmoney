@@ -24,7 +24,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
                 y={bulletLineY}
                 width="1.5"
                 height={bulletLineHeight}
-                fill={Colors.background}
+                fill={Colors.textPrimary}
               />
             )}
 
@@ -32,7 +32,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
               cx="10"
               cy="25"
               r="8"
-              stroke={Colors.background}
+              stroke={Colors.textPrimary}
               strokeWidth="1.5"
               fill={bulletColor}
             />
@@ -81,28 +81,28 @@ const styles = StyleSheet.create({
   },
   amountText: {
     fontSize: 14,
-    color: Colors.white,
+    color: Colors.textPrimary,
     fontWeight: 'bold',
   },
   descriptionText: {
     fontSize: 14,
-    color: Colors.white,
+    color: Colors.textPrimary,
   },
   details: {
     flexDirection: 'row',
   },
   entryAtIcon: {
-    color: Colors.metal,
+    color: Colors.textPrimary,
     marginTop: 2,
     marginRight: 2,
   },
   entryAtText: {
     fontSize: 12,
-    color: Colors.metal,
+    color: Colors.textPrimary,
   },
   entryAddressIcon: {
     marginTop: 2,
-    color: Colors.metal,
+    color: Colors.textPrimary,
     marginRight: 2,
     marginLeft: 5,
   },

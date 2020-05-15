@@ -10,24 +10,23 @@ import useBalance from '../../hooks/useBalance';
 const BalancePanel = ({onNewEntryPress}) => {
   const [balance] = useBalance();
   return (
-    <View>
-      <LinearGradient
-        colors={[Colors.violet, Colors.blue]}
-        style={styles.panel}>
+    <View style={styles.container}>
+      <View style={styles.panel}>
         <BalancePanelLabel currentBalance={balance} />
-        <BalancePanelChart />
-      </LinearGradient>
+      </View>
       <TouchableOpacity style={styles.button} onPress={onNewEntryPress}>
-        <Icon name="add" size={30} color={Colors.white} />
+        <Icon name="add" size={30} color={Colors.textPrimary} />
       </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    marginBottom: -25,
+  },
   button: {
-    backgroundColor: Colors.green,
+    backgroundColor: Colors.backgroundItem,
     borderRadius: 100,
     height: 50,
     width: 50,
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   panel: {
-    paddingVertical: 10,
+    backgroundColor: Colors.backgroundComponents,
   },
 });
 

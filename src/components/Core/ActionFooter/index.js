@@ -29,20 +29,21 @@ export const ActionSecondaryButton = ({title, onPress}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.backgroundLight,
     paddingVertical: 10,
   },
   primaryButton: {
     borderRadius: 100,
     borderWidth: 1,
-    borderColor: Colors.green,
+    borderColor: Colors.textPrimary,
     paddingVertical: 10,
     paddingHorizontal: 20,
+    backgroundColor: Colors.textPrimary,
   },
   primaryButtonText: {
     fontSize: 18,
     textAlign: 'center',
-    color: Colors.green,
+    color: Colors.white,
   },
   secondaryButton: {
     paddingVertical: 10,
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
   secondaryButtonText: {
     fontSize: 18,
     textAlign: 'center',
-    color: Colors.white,
+    color: Colors.textPrimary,
   },
   inner: {
     flexDirection: 'row',

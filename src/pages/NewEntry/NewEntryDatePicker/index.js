@@ -43,7 +43,7 @@ const NewEntryDatePicker = ({value, onChange}) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: Colors.asphalt,
+    backgroundColor: Colors.textPrimary,
     width: 59,
     height: 59,
     borderRadius: 150,

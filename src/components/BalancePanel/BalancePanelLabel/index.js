@@ -1,28 +1,31 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Colors from '../../../Styles/colors';
+import EyeChange from '../../../components/EyeChange';
 
 const BalancePanelLabel = ({currentBalance}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.textBalance}> Saldo atual:</Text>
+      <Text style={styles.textBalance}> Saldo disponível</Text>
       <Text style={styles.textValue}>{currentBalance}</Text>
+      <EyeChange />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
+    zIndex: 1,
     alignItems: 'center',
   },
   textBalance: {
-    fontSize: 14,
-    color: Colors.white,
+    marginTop: 10,
+    fontSize: 16,
+    color: Colors.textPrimary,
   },
   textValue: {
     fontSize: 36,
-    color: Colors.white,
+    color: Colors.textPrimary,
   },
 });
 

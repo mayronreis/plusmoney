@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {StatusBar} from 'react';
 import Routes from './routes';
 
 const App = () => {

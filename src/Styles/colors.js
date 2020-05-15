@@ -31,6 +31,11 @@ const Colors = {
   dark: '#34495e',
   background: '#233240',
   backgroundColor2: '#00213b',
+
+  backgroundLight: '#ffffff',
+  backgroundComponents: '#E5E5E5',
+  textPrimary: '#3A4276',
+  backgroundItem: '#FFAC30',
 };
 
 export default Colors;

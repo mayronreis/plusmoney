@@ -36,7 +36,7 @@ const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
 
 const styles = StyleSheet.create({
   pickerButton: {
-    backgroundColor: Colors.asphalt,
+    backgroundColor: Colors.backgroundComponents,
     borderRadius: 15,
     marginHorizontal: 20,
     marginVertical: 10,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   pickerButtonText: {
     fontSize: 28,
-    color: Colors.white,
+    color: Colors.textPrimary,
     textAlign: 'center',
   },
   modal: {

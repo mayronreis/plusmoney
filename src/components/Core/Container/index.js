@@ -39,7 +39,7 @@ const Container = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.asphalt,
+    backgroundColor: Colors.backgroundComponents,
     borderRadius: 5,
     borderStyle: 'solid',
     borderWidth: 1,
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 12,
-    color: Colors.white,
+    color: Colors.textPrimary,
     marginBottom: 5,
   },
   actionContainer: {
@@ -58,19 +58,19 @@ const styles = StyleSheet.create({
   actionLabel: {
     flex: 1,
     fontSize: 12,
-    color: Colors.white,
+    color: Colors.textPrimary,
   },
   actionButton: {
     flexDirection: 'row',
   },
   actionButtonIcon: {
-    color: Colors.white,
+    color: Colors.textPrimary,
     marginTop: 3,
     marginRight: 2,
   },
   actionButtonText: {
     fontSize: 12,
-    color: Colors.white,
+    color: Colors.textPrimary,
   },
 });
 
