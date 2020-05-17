@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
-import LinearGradient from 'react-native-linear-gradient';
+import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, StatusBar} from 'react-native';
 import BalancePanelLabel from './BalancePanelLabel';
 import BalancePanelChart from './BalancePanelChart';
 import Colors from '../../Styles/colors';
@@ -11,6 +10,10 @@ const BalancePanel = ({onNewEntryPress}) => {
   const [balance] = useBalance();
   return (
     <View style={styles.container}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={Colors.backgroundComponents}
+      />
       <View style={styles.panel}>
         <BalancePanelLabel currentBalance={balance} />
       </View>

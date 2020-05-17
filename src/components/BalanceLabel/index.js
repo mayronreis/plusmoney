@@ -9,11 +9,9 @@ const BalanceLabel = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Saldo atual:</Text>
-      <LinearGradient
-        style={styles.panel}
-        colors={[Colors.violet, Colors.blue]}>
+      <View style={styles.panel} colors={[Colors.violet, Colors.blue]}>
         <Text style={styles.value}>{balance}</Text>
-      </LinearGradient>
+      </View>
     </View>
   );
 };
@@ -39,6 +37,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     paddingVertical: 10,
     marginVertical: 10,
+    backgroundColor: Colors.textPrimary,
   },
 });
 

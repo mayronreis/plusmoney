@@ -30,6 +30,7 @@ const useCategories = () => {
 
     const LoadInitCategories = async () => {
       const data = await getInitCategories();
+      //setInitCategory(data['0']
       setInitCategory(data);
     };
     LoadDebitCategories();

@@ -32,10 +32,15 @@ export const saveEntry = async (value, entry = {}) => {
     realm.write(() => {
       data = {
         id: value.id || entry.id || getUUID(),
-        amount: value.amount || entry.amount,
-        entryAt: value.entryAt || entry.entryAt,
+        amount: value.amount || entry.amount || 0,
+        entryAt: value.entryAt || entry.entryAt || new Date(),
         description: value.category.name,
-        isInit: false,
+        photo: value.photo,
+        address: value.address || entry.address,
+        latitude: value.latitude || entry.latitude,
+        longitude: value.longitude || entry.longitude,
+
+        isInit: value.isInit || false,
         category: value.category || entry.category,
       };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Svg, {Circle} from 'react-native-svg';
 import Colors from '../../../../Styles/colors';
+import Currency from '../../../Core/Currency';
 
 const EntrySummaryListItem = ({entry}) => {
   const bulletColor = entry.category.color || Colors.white;
@@ -11,14 +12,16 @@ const EntrySummaryListItem = ({entry}) => {
         <Circle
           cx="10"
           cy="10"
-          r="8"
+          r="5"
           stroke={Colors.textPrimary}
           strokeWidth="0.5"
           fill={bulletColor}
         />
       </Svg>
       <Text style={styles.category}>{entry.category.name}</Text>
-      <Text style={styles.amount}>{entry.amount}</Text>
+      <Text style={styles.amount}>
+        <Currency value={entry.amount} />
+      </Text>
     </View>
   );
 };

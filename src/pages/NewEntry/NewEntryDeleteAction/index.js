@@ -29,7 +29,7 @@ const NewEntryDeleteAction = ({entry, onOkPress}) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: Colors.red,
+    backgroundColor: Colors.redDark,
     width: 59,
     height: 59,
     borderRadius: 150,
