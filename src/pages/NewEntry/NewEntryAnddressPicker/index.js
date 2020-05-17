@@ -9,7 +9,7 @@ import Colors from '../../../Styles/colors';
 
 const NewEntryAddressPicker = ({address, onChange}) => {
   const getLocation = (latitude, longitude) => {
-    Geocoder.init('AIzaSyA1ZWGdjyEpi-hmMgRtHw5ZBtMRfFaLmps');
+    Geocoder.init('xxx');
 
     Geocoder.from({latitude, longitude})
       .then((json) => {
