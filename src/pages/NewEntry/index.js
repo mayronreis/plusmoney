@@ -13,9 +13,10 @@ import ActionFooter, {
 } from '../../components/Core/ActionFooter';
 import useEntries from '../../hooks/useEntries';
 import NewEntryAnddressPicker from './NewEntryAnddressPicker';
+import EyeChange from '../../components/EyeChange';
 import Colors from '../../Styles/colors';
 
-const NewEntry = ({navigation}) => {
+const NewEntry = ({navigation, balanceVisible = true}) => {
   const entry = navigation.getParam('entry', {
     id: null,
     amount: 0,

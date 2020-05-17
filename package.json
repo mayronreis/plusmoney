@@ -1,5 +1,5 @@
 {
-  "name": "plusmoney",
+  "name": "PlusMoney",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -38,6 +38,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/runtime": "^7.9.2",
+    "@bam.tech/react-native-make": "^3.0.0",
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.4.0",
     "eslint": "^6.8.0",

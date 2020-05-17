@@ -104,8 +104,12 @@ const Report = ({navigation}) => {
       </View>
 
       <ScrollView>
-        <EntrySummary days={relativeDays} />
-        <EntryList days={relativeDays} category={category} />
+        <EntrySummary days={relativeDays} actionButtonText={false} />
+        <EntryList
+          days={relativeDays}
+          category={category}
+          actionButtonText={false}
+        />
       </ScrollView>
 
       <ActionFooter>

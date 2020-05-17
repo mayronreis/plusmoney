@@ -6,14 +6,20 @@ import Container from '../Core/Container';
 import {getEntries} from '../../services/Entries';
 import useEntries from '../../hooks/useEntries';
 
-const EntryList = ({days = 7, category, onEntryPress, onPressActionButton}) => {
+const EntryList = ({
+  days = 7,
+  category,
+  onEntryPress,
+  onPressActionButton,
+  actionButtonText = 'Ver Mais',
+}) => {
   const [entries] = useEntries(days, category);
 
   return (
     <Container
       title="Últimos Lançamentos"
       actionLabelText={`Últimos ${days} dias`}
-      actionButtonText="Ver mais"
+      actionButtonText={actionButtonText}
       onPressActionButton={onPressActionButton}>
       <FlatList
         data={entries}

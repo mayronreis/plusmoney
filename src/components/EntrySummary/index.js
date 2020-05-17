@@ -5,13 +5,17 @@ import EntrySummaryChart from './EntrySummaryChart';
 import Container from '../Core/Container';
 import useBalanceSumByCategory from '../../hooks/useBalanceSumByCategory';
 
-const EntrySummary = ({days = 7, onPressActionButton}) => {
+const EntrySummary = ({
+  days = 7,
+  onPressActionButton,
+  actionButtonText = 'Ver mais',
+}) => {
   const [balanceSum] = useBalanceSumByCategory(days);
   return (
     <Container
       title="Categorias"
       actionLabelText={`Últimos ${days} dias`}
-      actionButtonText="Ver mais"
+      actionButtonText={actionButtonText}
       onPressActionButton={onPressActionButton}>
       <View style={styles.inner}>
         <EntrySummaryChart data={balanceSum} />

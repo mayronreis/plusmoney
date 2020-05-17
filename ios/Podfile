@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'plusmoney' do
-  # Pods for plusmoney
+target 'PlusMoney' do
+  # Pods for PlusMoney
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -87,7 +87,7 @@ target 'plusmoney' do
 
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
 
-  target 'plusmoneyTests' do
+  target 'PlusMoneyTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -104,10 +104,10 @@ target 'plusmoney' do
   end
 end
 
-target 'plusmoney-tvOS' do
-  # Pods for plusmoney-tvOS
+target 'PlusMoney-tvOS' do
+  # Pods for PlusMoney-tvOS
 
-  target 'plusmoney-tvOSTests' do
+  target 'PlusMoney-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
