@@ -110,7 +110,7 @@ export const getBalanceSumByCategory = async (days, showOthers = true) => {
     .filter(({amount}) => amount > 0)
     .orderBy('amount', 'desc');
 
-  const othersLimit = 3;
+  const othersLimit = 5;
 
   if (showOthers && _(entries).size() > othersLimit) {
     const data1 = _(entries).slice(0, othersLimit);

@@ -13,14 +13,14 @@ export const getEntries = async (days, category) => {
     querySnapshot = await firestore()
       .collection('entries')
       .where('userId', '==', userAuth)
-      .orderBy('entryAt')
+      .orderBy('entryAt', 'asc')
       .startAt(date)
       .get();
   } else {
     querySnapshot = await firestore()
       .collection('entries')
       .where('userId', '==', userAuth)
-      .orderBy('entryAt')
+      .orderBy('entryAt', 'asc')
       .get();
   }
 

@@ -47,7 +47,7 @@ const CategoryModal = ({categoryType, isVisible, onConfirm, onCancel}) => {
 const styles = StyleSheet.create({
   modal: {
     flex: 1,
-    backgroundColor: Colors.backgroundComponents,
+    backgroundColor: Colors.backgroundLight,
   },
   modalItem: {
     borderRadius: 15,

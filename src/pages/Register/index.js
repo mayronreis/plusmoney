@@ -26,9 +26,16 @@ const Register = ({navigation}) => {
   const onSubmit = async () => {
     if (name === '') {
       return Alert.alert(
-        'O nome é obrigatório. Digite seu nome e tente novamente.',
+        'O campo Nome é obrigatório. Verifique e tente novamente.',
       );
     }
+
+    if (email === '') {
+      return Alert.alert(
+        'O campo E-mail é obrigatório. Verifique e tente novamente.',
+      );
+    }
+
     if (password !== ConfirmPassword || password === '' || console === '') {
       setPassword('');
       setConfirmPassword('');

@@ -80,7 +80,10 @@ const NewEntry = ({route, navigation}) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={Colors.background} />
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={Colors.backgroundLight}
+      />
       <BalanceLabel />
 
       <View style={styles.formContainer}>

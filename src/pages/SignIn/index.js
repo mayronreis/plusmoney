@@ -4,6 +4,7 @@ import {singIn as login} from '../../services/Auth';
 import {isInitialized} from '../../services/welcome';
 
 import {
+  Alert,
   Text,
   TextInput,
   Image,
@@ -21,6 +22,11 @@ const SignIn = ({navigation}) => {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async () => {
+    if (password === '' || email === '') {
+      return Alert.alert(
+        'Os campos E-mail e Senha são obrigatórios para fazer login. Verifique e tente novamente.',
+      );
+    }
     if (loading === false) {
       setLoading(true);
       const {loginSuccess} = await login({
@@ -137,23 +143,6 @@ const styles = StyleSheet.create({
   },
   registerText: {
     color: Colors.textPrimary,
-  },
-  instructions: {
-    color: '#DDD',
-    fontSize: 14,
-    marginTop: 20,
-    textAlign: 'center',
-  },
-  logo: {
-    height: Dimensions.get('window').height * 0.11,
-    marginVertical: Dimensions.get('window').height * 0.11,
-    width: Dimensions.get('window').height * 0.11 * (1950 / 662),
-  },
-  welcome: {
-    color: '#fff',
-    fontSize: 22,
-    fontWeight: 'bold',
-    textAlign: 'center',
   },
   image: {
     height: 120,
