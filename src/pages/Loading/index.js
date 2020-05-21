@@ -1,20 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, StatusBar, ActivityIndicator, StyleSheet} from 'react-native';
-
-import {isInitialized} from '../../services/welcome';
 
 import Colors from '../../Styles/colors';
 
-const Loading = ({navigation}) => {
-  useEffect(() => {
-    async function makeRedirect() {
-      (await isInitialized())
-        ? navigation.navigate('Main')
-        : navigation.navigate('Welcome');
-    }
-    makeRedirect();
-  }, []);
-
+const Loading = () => {
   return (
     <View style={styles.container}>
       <StatusBar

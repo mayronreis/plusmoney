@@ -7,28 +7,28 @@ import Colors from '../../../Styles/colors';
 
 const InputMoney = ({
   value,
-  startWithDebid = true,
+  startWithDebit = true,
   onChangeDebit,
   onChangeValue,
 }) => {
   const setDefaultDebit = () => {
     if (value === 0) {
-      return startWithDebid ? -1 : 1;
+      return startWithDebit ? -1 : 1;
     } else {
       return value <= 0 ? -1 : 1;
     }
   };
 
-  const setDefaultPrefix = () => {
+  const setDefaultDebitPrefix = () => {
     if (value === 0) {
-      return startWithDebid ? '-' : '';
+      return startWithDebit ? '-' : '';
     } else {
       return value <= 0 ? '-' : '';
     }
   };
 
   const [debit, setDebit] = useState(setDefaultDebit());
-  const [debitPrefix, setDebitPrefix] = useState(setDefaultPrefix());
+  const [debitPrefix, setDebitPrefix] = useState(setDefaultDebitPrefix());
 
   const onChangeDebitCredit = () => {
     if (debit < 0) {
@@ -40,8 +40,10 @@ const InputMoney = ({
       setDebitPrefix('-');
       onChangeDebit && onChangeDebit(true);
     }
+
     onChangeValue(value * -1);
   };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity

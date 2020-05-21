@@ -17,6 +17,7 @@ const BalancePanel = ({onNewEntryPress}) => {
       <View style={styles.panel}>
         <BalancePanelLabel currentBalance={balance} />
       </View>
+
       <TouchableOpacity style={styles.button} onPress={onNewEntryPress}>
         <Icon name="add" size={30} color={Colors.textPrimary} />
       </TouchableOpacity>

@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {View, Image, StyleSheet} from 'react-native';
-import {saveEntry} from '../../services/Entries';
+import {View, Image, StatusBar, StyleSheet} from 'react-native';
+import {addEntry} from '../../services/Entries';
 import useCategories from '../../hooks/useCategories';
 import Colors from '../../Styles/colors';
 import Logo from '../../assets/logotext.png';
 import WelcomeMessage from './WelcomeMessage';
 import WelcomeBalanceInput from './WelcomeBalanceInput';
-import {setInitialized} from '../../services/welcome';
+import {setInitialized, setVisibilityBalance} from '../../services/welcome';
 import ActionFooter, {
   ActionPrimaryButton,
 } from '../../components/Core/ActionFooter';
@@ -16,17 +16,23 @@ const Welcome = ({navigation}) => {
   const [amount, setAmount] = useState(0);
 
   const onSavePress = () => {
-    saveEntry({
+    addEntry({
       amount: amount,
       isInit: true,
       category: initCategories,
     });
+    //cleanInitialized();
     setInitialized();
+    setVisibilityBalance(true);
     navigation.navigate('Main');
   };
 
   return (
     <View style={styles.container}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={Colors.backgroundLight}
+      />
       <View style={styles.logo}>
         <Image style={styles.image} source={Logo} />
       </View>
@@ -49,7 +55,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
   },
-  image: {},
+  image: {
+    height: 120,
+    width: 360,
+  },
 });
 
 export default Welcome;

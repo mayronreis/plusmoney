@@ -4,24 +4,28 @@ import Colors from '../../Styles/colors';
 import useBalance from '../../hooks/useBalance';
 import Currency from '../../components/Core/Currency';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {isVisibleBalance, setVisibilityBalance} from '../../services/welcome';
 
 const BalanceLabel = () => {
   const [balance] = useBalance();
-  const [eyeVisible, setEyeVisible] = useState(false);
+  const [eyeVisible, setEyeVisible] = useState();
 
-  const onChangeEye = () => {
-    if (eyeVisible) {
-      setEyeVisible(false);
+  const onChangeEye = async () => {
+    const visibility = await isVisibleBalance();
+    if (visibility) {
+      setVisibilityBalance(true);
     } else {
-      setEyeVisible(true);
+      setVisibilityBalance(false);
     }
+    return visibility;
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Saldo disponível:</Text>
+
       <View style={styles.panel} colors={[Colors.violet, Colors.blue]}>
-        {(eyeVisible && (
+        {(onChangeEye && (
           <Text style={styles.value}>
             <Currency value={balance} />{' '}
           </Text>
@@ -29,7 +33,7 @@ const BalanceLabel = () => {
       </View>
       <TouchableOpacity onPress={onChangeEye}>
         <Icon
-          name={eyeVisible ? 'eye-outline' : 'eye-off-outline'}
+          name={onChangeEye ? 'eye-off-outline' : 'eye-outline'}
           size={24}
           color={Colors.textPrimary}
         />

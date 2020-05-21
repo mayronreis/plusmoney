@@ -7,33 +7,38 @@ import NewEntryCategoryPicker from './NewEntryCategoryPicker';
 import NewEntryDatePicker from './NewEntryDatePicker';
 import NewEntryDeleteAction from './NewEntryDeleteAction';
 import NewEntryCameraPicker from './NewEntryCameraPicker';
+import NewEntryAddressPicker from './NewEntryAnddressPicker';
 import ActionFooter, {
   ActionPrimaryButton,
   ActionSecondaryButton,
 } from '../../components/Core/ActionFooter';
 import useEntries from '../../hooks/useEntries';
-import NewEntryAnddressPicker from './NewEntryAnddressPicker';
-import EyeChange from '../../components/EyeChange';
+
 import Colors from '../../Styles/colors';
 
-const NewEntry = ({navigation, balanceVisible = true}) => {
-  const entry = navigation.getParam('entry', {
-    id: null,
-    amount: 0,
-    entryAt: new Date(),
-    photo: null,
-    address: null,
-    latitude: null,
-    longitude: null,
-    category: {id: null, name: 'Selecione'},
-  });
+const NewEntry = ({route, navigation}) => {
+  const entry = route.params?.entry
+    ? route.params.entry
+    : {
+        id: null,
+        amount: 0,
+        // entryAt: new Date(),
+        photo: null,
+        address: null,
+        latitude: null,
+        longitude: null,
+        category: {id: null, name: 'Selecione'},
+      };
+  const isEdit = route.params?.isEdit ? route.params.isEdit : false;
 
-  const [, saveEntry, deleteEntry] = useEntries();
+  const [, addEntry, updateEntry, deleteEntry] = useEntries();
 
   const [debit, setDebit] = useState(entry.amount <= 0);
   const [amount, setAmount] = useState(entry.amount);
   const [category, setCategory] = useState(entry.category);
-  const [entryAt, setEntryAt] = useState(entry.entryAt);
+  const [entryAt, setEntryAt] = useState(
+    entry.entryAt ? entry.entryAt.toDate() : new Date(),
+  );
   const [photo, setPhoto] = useState(entry.photo);
   const [address, setAddress] = useState(entry.address);
   const [latitude, setLatitude] = useState(entry.latitude);
@@ -49,7 +54,8 @@ const NewEntry = ({navigation, balanceVisible = true}) => {
 
   const onSave = () => {
     const data = {
-      amount: parseFloat(amount),
+      id: entry.id,
+      amount: amount,
       category: category,
       photo: photo,
       address: address,
@@ -59,7 +65,7 @@ const NewEntry = ({navigation, balanceVisible = true}) => {
     };
 
     console.log('NewEntry :: save ', data);
-    saveEntry(data, entry);
+    isEdit ? updateEntry(data) : addEntry(data);
     onClose();
   };
 
@@ -69,15 +75,12 @@ const NewEntry = ({navigation, balanceVisible = true}) => {
   };
 
   const onClose = () => {
-    navigation.navigate('Main');
+    navigation.goBack();
   };
 
   return (
     <View style={styles.container}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={Colors.backgroundLight}
-      />
+      <StatusBar barStyle="light-content" backgroundColor={Colors.background} />
       <BalanceLabel />
 
       <View style={styles.formContainer}>
@@ -86,7 +89,6 @@ const NewEntry = ({navigation, balanceVisible = true}) => {
           onChangeValue={setAmount}
           onChangeDebit={setDebit}
         />
-
         <NewEntryCategoryPicker
           debit={debit}
           category={category}
@@ -96,7 +98,7 @@ const NewEntry = ({navigation, balanceVisible = true}) => {
         <View style={styles.formActionContainer}>
           <NewEntryDatePicker value={entryAt} onChange={setEntryAt} />
           <NewEntryCameraPicker photo={photo} onChangePhoto={setPhoto} />
-          <NewEntryAnddressPicker
+          <NewEntryAddressPicker
             address={address}
             onChange={({latitude, longitude, address}) => {
               setLatitude(latitude);
@@ -104,7 +106,6 @@ const NewEntry = ({navigation, balanceVisible = true}) => {
               setAddress(address);
             }}
           />
-
           <NewEntryDeleteAction entry={entry} onOkPress={onDelete} />
         </View>
       </View>

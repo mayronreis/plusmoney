@@ -57,3 +57,8 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+android/app/google-services.json
+android/java_pid944.hprof
+android/java_pid8360.hprof
+android/java_pid8892.hprof
+android/gradle.properties
