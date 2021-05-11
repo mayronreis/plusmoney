@@ -20,7 +20,7 @@
     "@react-native-firebase/firestore": "^7.0.1",
     "@react-navigation/native": "^5.4.0",
     "@react-navigation/stack": "^5.3.7",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "moment": "^2.25.3",
     "react": "16.11.0",
     "react-gesture-handler": "0.0.3",
